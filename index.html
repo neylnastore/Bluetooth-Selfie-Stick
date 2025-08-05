@@ -1,1 +1,740 @@
-sddd
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6 in 1 Bluetooth Selfie Stick - Neylna Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        
+        .animate-pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+        
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            animation: zoom 0.6s;
+        }
+        
+        @keyframes zoom {
+            from {transform:scale(0)} 
+            to {transform:scale(1)}
+        }
+        
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            z-index: 50;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            max-width: 300px;
+        }
+        
+        .notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .notification-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #55c4cf;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        
+        .strike-through {
+            position: relative;
+        }
+        
+        .strike-through:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: 2px;
+            background: #f56565;
+            transform: translateY(-50%) rotate(-5deg);
+        }
+        
+        .floating-cta {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 40;
+            width: 90%;
+            max-width: 500px;
+            animation: pulse 2s infinite;
+        }
+        
+        @media (max-width: 640px) {
+            .modal-content {
+                width: 95%;
+            }
+            
+            .close {
+                top: 10px;
+                right: 20px;
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-30">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="https://cdn.orderonline.id/uploads/images_8057731750768190275.png" alt="Neylna Store" class="h-10 mr-2">
+                <span class="text-xl font-bold text-gray-800">Neylna Store</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="hidden md:flex items-center bg-blue-50 px-3 py-1 rounded-full">
+                    <i class="fas fa-headset text-blue-500 mr-2"></i>
+                    <span class="text-sm font-medium text-blue-800">CS 24/7</span>
+                </div>
+                <div class="hidden md:flex items-center bg-green-50 px-3 py-1 rounded-full">
+                    <i class="fas fa-shield-alt text-green-500 mr-2"></i>
+                    <span class="text-sm font-medium text-green-800">Garansi</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-12">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0 animate-fade-in">
+                <h1 class="text-3xl md:text-4xl font-bold mb-4">6 in 1 Bluetooth Selfie Stick</h1>
+                <p class="text-xl mb-6">Alat Fotografi Terlengkap dengan Fitur Canggih untuk Setiap Momen Spesial Anda</p>
+                <div class="flex items-center mb-6">
+                    <div class="flex mr-4">
+                        <i class="fas fa-star text-yellow-300"></i>
+                        <i class="fas fa-star text-yellow-300"></i>
+                        <i class="fas fa-star text-yellow-300"></i>
+                        <i class="fas fa-star text-yellow-300"></i>
+                        <i class="fas fa-star text-yellow-300"></i>
+                    </div>
+                    <span class="text-sm">500+ Reviews</span>
+                </div>
+                <div class="bg-white bg-opacity-20 p-4 rounded-lg mb-6">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <div class="text-sm">Tanpa Lampu</div>
+                            <div class="text-2xl font-bold">Rp 185.000</div>
+                        </div>
+                        <div>
+                            <div class="text-sm">Dengan Lampu</div>
+                            <div class="text-2xl font-bold">Rp 195.000</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#order-form" class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-6 rounded-full inline-flex items-center">
+                    <i class="fas fa-shopping-cart mr-2"></i> BELI SEKARANG
+                </a>
+            </div>
+            <div class="md:w-1/2 flex justify-center animate-fade-in" style="animation-delay: 0.3s;">
+                <img src="https://cdn.hotishop.com/image/2022/08/042a032991f7e44dbac71e5afa09b7be733c5db68d063c6a44503aa5b9be035d.gif" 
+                     alt="6 in 1 Bluetooth Selfie Stick" 
+                     class="rounded-lg shadow-xl max-h-96 object-contain">
+            </div>
+        </div>
+    </section>
+
+    <!-- Counter Section -->
+    <section class="bg-gray-100 py-6">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-around text-center">
+                <div class="px-4 py-2">
+                    <div class="text-2xl font-bold text-blue-600" id="viewer-counter">1250</div>
+                    <div class="text-sm text-gray-600">Pengunjung Hari Ini</div>
+                </div>
+                <div class="px-4 py-2">
+                    <div class="text-2xl font-bold text-green-600" id="sold-counter">843</div>
+                    <div class="text-sm text-gray-600">Terjual Bulan Ini</div>
+                </div>
+                <div class="px-4 py-2">
+                    <div class="text-2xl font-bold text-red-600" id="stock-counter">57</div>
+                    <div class="text-sm text-gray-600">Stok Tersisa</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Solution Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Masalah Fotografi Anda Teratasi Sekarang!</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-red-50 p-6 rounded-lg border-l-4 border-red-500">
+                    <h3 class="text-xl font-bold text-red-700 mb-3">Masalah Anda</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-times-circle text-red-500 mt-1 mr-2"></i>
+                            <span>Foto grup selalu ada yang terpotong karena tangan tidak cukup panjang</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-times-circle text-red-500 mt-1 mr-2"></i>
+                            <span>Sudut foto terbatas dan tidak bisa menangkap pemandangan luas</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-times-circle text-red-500 mt-1 mr-2"></i>
+                            <span>Foto selfie blur karena guncangan saat menekan tombol</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-times-circle text-red-500 mt-1 mr-2"></i>
+                            <span>Harus membawa banyak alat untuk kebutuhan fotografi berbeda</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
+                    <h3 class="text-xl font-bold text-green-700 mb-3">Solusi Kami</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Dengan tongkat sepanjang 80cm, semua orang masuk dalam frame</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Sudut 360° memungkinkan pengambilan gambar dari segala arah</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Remote Bluetooth mencegah guncangan saat mengambil foto</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>6 fungsi dalam 1 alat: selfie stick, tripod, remote, dll</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="#order-form" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full inline-flex items-center animate-pulse">
+                    <i class="fas fa-shopping-cart mr-2"></i> BELI SEKARANG
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Fitur Unggulan 6 in 1 Bluetooth Selfie Stick</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="text-blue-500 text-4xl mb-4">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Extendable hingga 80cm</h3>
+                    <p class="text-gray-600">Dapat diperpanjang untuk menangkap lebih banyak orang dan pemandangan dalam satu frame.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="text-blue-500 text-4xl mb-4">
+                        <i class="fas fa-bluetooth"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Remote Bluetooth</h3>
+                    <p class="text-gray-600">Kontrol kamera dari jarak hingga 10 meter tanpa kabel, mengurangi guncangan saat mengambil foto.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="text-blue-500 text-4xl mb-4">
+                        <i class="fas fa-camera-retro"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Tripod Stabil</h3>
+                    <p class="text-gray-600">Kaki tripod yang kokoh untuk foto grup atau video dengan stabilitas maksimal.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="text-blue-500 text-4xl mb-4">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Universal Holder</h3>
+                    <p class="text-gray-600">Kompatibel dengan semua smartphone dari 4" hingga 6.5" termasuk iPhone dan Android.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="text-blue-500 text-4xl mb-4">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Ring Light (Opsional)</h3>
+                    <p class="text-gray-600">Pencahayaan sempurna untuk selfie malam hari atau kondisi cahaya rendah.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="text-blue-500 text-4xl mb-4">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Rotasi 360°</h3>
+                    <p class="text-gray-600">Putar smartphone ke segala arah untuk sudut pengambilan gambar yang fleksibel.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Galeri Produk</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="cursor-pointer" onclick="openModal('https://cdn.hotishop.com/image/2022/08/cb82f450a105ef6f617c3af06fdd3012ee2807489398625b5a7b0671a904beb2-400.jpeg')">
+                    <img src="https://cdn.hotishop.com/image/2022/08/cb82f450a105ef6f617c3af06fdd3012ee2807489398625b5a7b0671a904beb2-400.jpeg" 
+                         alt="Selfie Stick" 
+                         class="w-full h-48 object-cover rounded-lg hover:opacity-90 transition">
+                </div>
+                <div class="cursor-pointer" onclick="openModal('https://cdn.hotishop.com/image/840ba36c9cf9c7c02fe321a8d6ada096921dbfcc-400.png')">
+                    <img src="https://cdn.hotishop.com/image/840ba36c9cf9c7c02fe321a8d6ada096921dbfcc-400.png" 
+                         alt="Selfie Stick" 
+                         class="w-full h-48 object-cover rounded-lg hover:opacity-90 transition">
+                </div>
+                <div class="cursor-pointer" onclick="openModal('https://cdn.hotishop.com/image/2022/08/e9f89f5e79fef7890145f2195aed2fac85a7e317915f2ef0ff8377cbd5bb3315-400.jpeg')">
+                    <img src="https://cdn.hotishop.com/image/2022/08/e9f89f5e79fef7890145f2195aed2fac85a7e317915f2ef0ff8377cbd5bb3315-400.jpeg" 
+                         alt="Selfie Stick" 
+                         class="w-full h-48 object-cover rounded-lg hover:opacity-90 transition">
+                </div>
+                <div class="cursor-pointer" onclick="openModal('https://cdn.hotishop.com/image/f4736ea41770bec25619e648526ea945d0ea324e-400.jpeg')">
+                    <img src="https://cdn.hotishop.com/image/f4736ea41770bec25619e648526ea945d0ea324e-400.jpeg" 
+                         alt="Selfie Stick" 
+                         class="w-full h-48 object-cover rounded-lg hover:opacity-90 transition">
+                </div>
+                <div class="cursor-pointer" onclick="openModal('https://cdn.hotishop.com/image/2022/08/a7a3e7e43c1554780344e3a2b5ca3241df22b1c749722d7a6e94a844802cfd39-400.png')">
+                    <img src="https://cdn.hotishop.com/image/2022/08/a7a3e7e43c1554780344e3a2b5ca3241df22b1c749722d7a6e94a844802cfd39-400.png" 
+                         alt="Selfie Stick" 
+                         class="w-full h-48 object-cover rounded-lg hover:opacity-90 transition">
+                </div>
+                <div class="cursor-pointer" onclick="openModal('https://cdn.hotishop.com/image/c27e703280106faf8f28eb17ba5c5e0546331ebb.jpeg')">
+                    <img src="https://cdn.hotishop.com/image/c27e703280106faf8f28eb17ba5c5e0546331ebb.jpeg" 
+                         alt="Selfie Stick" 
+                         class="w-full h-48 object-cover rounded-lg hover:opacity-90 transition">
+                </div>
+            </div>
+            
+            <!-- Modal -->
+            <div id="imageModal" class="modal">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <img class="modal-content" id="modalImage">
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Apa Kata Pelanggan Kami?</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold mr-3">R</div>
+                        <div>
+                            <h4 class="font-bold">Rina - Ibu Rumah Tangga</h4>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Sangat membantu untuk foto keluarga. Anak-anak senang karena semua bisa masuk frame. Kualitasnya juga bagus untuk harganya."</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-white font-bold mr-3">A</div>
+                        <div>
+                            <h4 class="font-bold">Andi - Fotografer</h4>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Sebagai fotografer, saya suka fleksibilitasnya. Bisa jadi tripod darurat saat shooting di luar studio. Bluetoothnya responsif."</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center text-white font-bold mr-3">D</div>
+                        <div>
+                            <h4 class="font-bold">Dewi - Travel Blogger</h4>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Teman traveling wajib punya! Ringkas tapi multifungsi. Saya sering pakai fitur tripodnya untuk vlog. Recomended banget!"</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-red-500 flex items-center justify-center text-white font-bold mr-3">F</div>
+                        <div>
+                            <h4 class="font-bold">Fajar - Mahasiswa</h4>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Harga terjangkau untuk kualitas premium. Fitur lengkap banget. Sekarang foto tugas kelompok gampang, semua masuk frame."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Urgency Section -->
+    <section class="py-12 bg-blue-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Promo Spesial Hari Ini!</h2>
+            
+            <div class="max-w-2xl mx-auto bg-blue-700 rounded-lg p-6 mb-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <div class="text-sm line-through">Rp 277,500</div>
+                        <div class="text-3xl font-bold">Rp 185,000</div>
+                        <div class="text-lg">Tanpa Lampu</div>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <div class="text-sm line-through">Rp 292,500</div>
+                        <div class="text-3xl font-bold">Rp 195,000</div>
+                        <div class="text-lg">Dengan Lampu</div>
+                    </div>
+                </div>
+                
+                <div class="bg-yellow-400 text-blue-900 font-bold py-2 px-4 rounded-full inline-block mb-4">
+                    <i class="fas fa-truck mr-2"></i> GRATIS ONGKIR KHUSUS HARI INI
+                </div>
+                
+                <div class="mb-6">
+                    <div class="text-xl font-bold mb-2">WAKTU PROMO BERAKHIR DALAM:</div>
+                    <div id="countdown" class="text-2xl font-mono font-bold">
+                        <span id="hours">05</span>:<span id="minutes">43</span>:<span id="seconds">22</span>
+                    </div>
+                </div>
+                
+                <div class="bg-white text-blue-600 rounded-lg p-3 inline-block">
+                    <i class="fas fa-exclamation-triangle mr-2"></i> Stok Terbatas! Hanya <span id="urgent-stock" class="font-bold">57</span> unit tersisa
+                </div>
+            </div>
+            
+            <a href="#order-form" class="bg-red-500 hover:bg-red-600 text-white font-bold py-4 px-8 rounded-full inline-flex items-center text-xl animate-pulse">
+                <i class="fas fa-bolt mr-2"></i> PESAN SEKARANG
+            </a>
+        </div>
+    </section>
+
+    <!-- Order Form Section -->
+    <section id="order-form" class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold mb-3">Form Pemesanan</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Isi form berikut untuk memesan 6 in 1 Bluetooth Selfie Stick. Pastikan data yang Anda masukkan benar agar tidak terjadi kesalahan pengiriman.</p>
+            </div>
+                <div class="lg:w-1/2">
+                    <div class="bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden">
+                        <div class="bg-blue-600 text-white py-3 px-6">
+                            <h3 class="font-bold text-xl flex items-center">
+                                <i class="fas fa-user-edit mr-2"></i> Isi Data Diri
+                            </h3>
+                        </div>
+                        <div class="p-6">
+                            <!-- OrderOnline Embed Code - v8.0.4 -->
+                            <div class="ooef">
+                                <form class="orderonline-embed-form" data-username="vera" data-product-slug="bluetooth-selfie-stick" data-product-id="6891cb53df6fdaae7207967a" id="oo-embed-form-bluetooth-selfie-stick-4728" data-origin="orderonline">
+                                    <div class="ooef-loader"><style>.ooef-loader{visibility: hidden;opacity: 0;position: absolute;left: 0;right: 0;top: 0;bottom: 0;display: flex;justify-content: center;align-items: center;flex-direction: column;animation: ooLoadingIn 10s ease;-webkit-animation: ooLoadingIn 10s ease;animation-fill-mode: forwards;overflow: hidden}@keyframes ooLoadingIn{0%{visibility: hidden;opacity: 0}20%{visibility: visible;opacity: 0}100%{visibility: visible;opacity: 1}}@-webkit-keyframes ooLoadingIn{0%{visibility: hidden;opacity: 0}20%{visibility: visible;opacity: 0}100%{visibility: visible;opacity: 1}}.ooef-loader>div,.ooef-loader>div:after{border-radius: 50%;width: 2.5rem;height: 2.5rem}.ooef-loader>div{font-size: 10px;position: relative;text-indent: -9999em;border: .25rem solid #f5f5f5;border-left: .25rem solid #55c4cf;-webkit-transform: translateZ(0);-ms-transform: translateZ(0);transform: translateZ(0);-webkit-animation: ooLoading 1.1s infinite linear;animation: ooLoading 1.1s infinite linear}.ooef-loader.error>div{border-left: .25rem solid #ff4500;animation-duration: 5s}@-webkit-keyframes ooLoading{0%{-webkit-transform: rotate(0);transform: rotate(0)}100%{-webkit-transform: rotate(360deg);transform: rotate(360deg)}}@keyframes ooLoading{0%{-webkit-transform: rotate(0);transform: rotate(0)}100%{-webkit-transform: rotate(360deg);transform: rotate(360deg)}}</style><div aria-live="polite" role="status"><div>Loading...</div></div></div>
+                                </form>
+                            </div>
+                            <script>
+                                if (typeof xLogError != 'function') {
+                                    var xLogError = function (error) {
+                                        var req = new XMLHttpRequest();
+                                        var payload = JSON.stringify({
+                                            url: document.location.href,
+                                            line: error.line,
+                                            stack: error.stack
+                                        });
+                                        var params = 'message=' + encodeURIComponent(error.name) + '&payload=' + encodeURIComponent(payload) + '&type=embed&level=error';
+                                        req.open('POST', 'https://api.orderonline.id/log', true);
+                                        req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                                        req.send(params);
+                                    };
+                                }
+                                try {
+                                    if (typeof xEmbedScript != 'function') {
+                                        var xEmbedScript = function () {
+                                            !function(w, d, e, v, id, t, s) {
+                                                if (d.getElementById(id)) return;
+                                                t = d.createElement(e);t.async = !0;t.src = v;t.id = id;
+                                                s = d.getElementsByTagName(e)[0];
+                                                s.parentNode.insertBefore(t, s);
+                                            }(window, document, 'script', 'https://cdn.orderonline.id/js/embed-v2-slim.min.js?v=8.0.4', 'oo-embed-js');
+                                        };
+                                    }
+                                    if (typeof xEmbedInit != 'function') {
+                                        var xEmbedInit = function (w, n) {
+                                            if (w.ooe) return;
+                                            n = w.ooe = function() {
+                                                n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                                            };
+                                            if (!w._ooe) w._ooe = n;
+                                            n.push = n;n.loaded = !0;n.version = '8.0.4';n.queue = [];
+                                        };
+                                    }
+                                    xEmbedInit(window);
+                                    ooe('setup', 'redirect', 'https://vera.orderonline.id');
+                                    ooe('init', '5f1a7807a9bf807d6c63d963', '6891cb53df6fdaae7207967a', '6891cb53df6fdaae7207967b', 'oo-embed-form-bluetooth-selfie-stick-4728', {"mode":"page","action":"Klik untuk pemesanan","title":"Form Pemesanan","triggerPixel":true,"triggerGtm":false});
+                                    if (!window.jQuery) {
+                                        !function(w, d, e, v, id, t, s) {
+                                            if (d.getElementById(id)) return;
+                                            t = d.createElement(e);t.async = !0;t.src = v;t.id = id;
+                                            t.addEventListener('load', xEmbedScript);
+                                            s = d.getElementsByTagName(e)[0];
+                                            s.parentNode.insertBefore(t, s);
+                                        }(window, document, 'script', 'https://cdn.orderonline.id/js/vendor/jquery.min.js', 'oo-embed-jquery');
+                                    } else {
+                                        xEmbedScript();
+                                    }
+                                } catch (e) {
+                                    xLogError(e);
+                                    throw e;
+                                }
+                            </script>
+                            <!-- End OrderOnline Embed Code -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="max-w-2xl mx-auto mt-8 bg-blue-50 rounded-lg p-4 text-center">
+                <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+                    <div class="flex items-center">
+                        <i class="fas fa-shield-alt text-blue-600 text-2xl mr-2"></i>
+                        <span class="font-medium">Garansi 100% Uang Kembali</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-lock text-blue-600 text-2xl mr-2"></i>
+                        <span class="font-medium">Pembayaran Aman</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-truck-fast text-blue-600 text-2xl mr-2"></i>
+                        <span class="font-medium">Pengiriman Cepat</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating CTA -->
+    <div class="floating-cta">
+        <a href="#order-form" class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-full shadow-lg flex items-center justify-center w-full">
+            <i class="fas fa-shopping-cart mr-2"></i> BELI SEKARANG - Mulai Rp 185,000
+        </a>
+    </div>
+
+    <!-- Notification Popup -->
+    <div id="notification" class="notification">
+        <div class="notification-avatar" id="avatar">S</div>
+        <div>
+            <div class="font-bold" id="buyer-name">Susi</div>
+            <div class="text-sm text-gray-600" id="buyer-location">dari Jakarta</div>
+            <div class="text-sm">Baru saja memesan 6 in 1 Bluetooth Selfie Stick</div>
+        </div>
+        <button onclick="closeNotification()" class="absolute top-1 right-1 text-gray-400 hover:text-gray-600">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <script>
+        // Dynamic counters
+        function animateCounter(elementId, target, duration = 2000) {
+            const element = document.getElementById(elementId);
+            const start = parseInt(element.textContent);
+            const increment = (target - start) / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                element.textContent = Math.floor(current);
+                
+                if ((increment > 0 && current >= target) || (increment < 0 && current <= target)) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                }
+            }, 16);
+        }
+        
+        // Initialize counters with random values around the given numbers
+        setTimeout(() => {
+            animateCounter('viewer-counter', Math.floor(1250 + Math.random() * 200));
+            animateCounter('sold-counter', Math.floor(843 + Math.random() * 100));
+            animateCounter('stock-counter', Math.floor(57 - Math.random() * 10));
+            animateCounter('urgent-stock', Math.floor(57 - Math.random() * 10));
+        }, 1000);
+        
+        // Countdown timer
+        function updateCountdown() {
+            const now = new Date();
+            const endOfDay = new Date();
+            endOfDay.setHours(23, 59, 59, 999);
+            
+            const diff = endOfDay - now;
+            
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Image modal
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = "block";
+            modalImg.src = imageSrc;
+        }
+        
+        function closeModal() {
+            document.getElementById('imageModal').style.display = "none";
+        }
+        
+        // Notification popup
+        const names = ['Susi', 'Budi', 'Dewi', 'Rudi', 'Ani', 'Agus', 'Rina', 'Fajar'];
+        const locations = ['Jakarta', 'Bandung', 'Surabaya', 'Medan', 'Makassar', 'Yogyakarta', 'Semarang', 'Bali'];
+        
+        function showNotification() {
+            const notification = document.getElementById('notification');
+            const avatar = document.getElementById('avatar');
+            const buyerName = document.getElementById('buyer-name');
+            const buyerLocation = document.getElementById('buyer-location');
+            
+            // Randomize buyer info
+            const randomName = names[Math.floor(Math.random() * names.length)];
+            const randomLocation = locations[Math.floor(Math.random() * locations.length)];
+            
+            avatar.textContent = randomName.charAt(0);
+            buyerName.textContent = randomName;
+            buyerLocation.textContent = `dari ${randomLocation}`;
+            
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 3000);
+            
+            // Auto close after 10 seconds
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 10000);
+        }
+        
+        function closeNotification() {
+            document.getElementById('notification').classList.remove('show');
+        }
+        
+        // Show notification after page load
+        window.onload = function() {
+            setTimeout(showNotification, 3000);
+            
+            // Show another notification every 30-60 seconds
+            setInterval(() => {
+                if (Math.random() > 0.3) { // 70% chance to show
+                    showNotification();
+                }
+            }, 30000 + Math.random() * 30000);
+        };
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        };
+    </script>
+</body>
+</html>
